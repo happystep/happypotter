@@ -11,6 +11,7 @@ namespace Ksu.Cis501.evicSimulator
         double _odometer;
         double _milesNextOilChange;
         bool _US;
+        bool _current;
 
 // constructors start here
 
