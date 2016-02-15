@@ -12,9 +12,30 @@ namespace Ksu.Cis501.evicSimulator
 
         private static int index = 0;
 
+       private static object[] _MainMenu = new Object[5];
+
+        private static int _loopStopCondition = 0;
+
         public static void Main(string[] args)
         {
-            MainMenu();
+            while (_loopStopCondition != -1)
+            {
+
+                _MainMenu[0] = new SystemStatus(false);
+                _MainMenu[1] = new WarningMessages();
+                _MainMenu[2] = new PersonalSettings();
+                _MainMenu[3] = new TemperatureInfo();
+                _MainMenu[4] = new TripInfo();
+
+
+                MainMenu();
+
+
+                Console.WriteLine("Enter -1 to exit program");
+                _loopStopCondition = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+
+            }//big looooooooooooooooooop!!
 
         }
 
@@ -32,6 +53,9 @@ namespace Ksu.Cis501.evicSimulator
                 case ConsoleKey.RightArrow:
                     MoveRight();    
                     break;
+                case ConsoleKey.UpArrow:
+                    MoveUp();
+                    break;
                 case ConsoleKey.Spacebar:
                     break;
                 default:
@@ -39,6 +63,28 @@ namespace Ksu.Cis501.evicSimulator
             }
 
         }//end mainmenu
+        
+        /// <summary>
+        /// Moves and displays the main menu to the option indicated up
+        /// </summary>
+        public static void MoveUp()
+        {
+
+
+
+
+
+        }
+
+        /// <summary>
+        /// Moves nad displays the main menu to the option indicated down 
+        /// </summary>
+        public static void MoveDown()
+        {
+
+        }
+
+
 
         /// <summary>
         /// Moves and displays the main menu to the option to the left
