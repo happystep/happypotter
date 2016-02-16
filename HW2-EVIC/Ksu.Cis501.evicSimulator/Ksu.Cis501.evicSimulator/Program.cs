@@ -16,6 +16,10 @@ namespace Ksu.Cis501.evicSimulator
 
         private static int _loopStopCondition = 0;
 
+        private SystemStatus ss = new SystemStatus(false);
+        private WarningMessages wm = new WarningMessages();
+        private PersonalSettings ps = new PersonalSettings();
+
         public static void Main(string[] args)
         {
             while (_loopStopCondition != -1)
@@ -51,10 +55,10 @@ namespace Ksu.Cis501.evicSimulator
                     MoveRight();    
                     break;
                 case ConsoleKey.UpArrow:
-                    MoveUp();
+                    MoveUpDown();
                     break;
                 case ConsoleKey.DownArrow:
-                    MoveDown();
+                    MoveUpDown();
                     break;
                 case ConsoleKey.Spacebar:
                     break;
@@ -65,36 +69,9 @@ namespace Ksu.Cis501.evicSimulator
         }//end mainmenu
         
         /// <summary>
-        /// Moves and displays the main menu to the option indicated up
-        /// </summary>
-        public static void MoveUp()
-        {
-            switch(index)
-            {
-                case 0:
-                    //system status
-
-                    break;
-                case 1:
-                    
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-            }
-
-
-
-
-        }
-
-        /// <summary>
         /// Moves nad displays the main menu to the option indicated down 
         /// </summary>
-        public static void MoveDown()
+        public static void MoveUpDown()
         {
             SystemStatus ss = new SystemStatus(false);
             WarningMessages wm = new WarningMessages();
