@@ -18,24 +18,33 @@ namespace Ksu.Cis501.evicSimulator
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Which mode would you like to enter?");
+            Console.WriteLine("1) Simulation");
+            Console.WriteLine("2) Regular Run");
+
+            
+
+
+
             while (_loopStopCondition != -1)
             {
-                _MainMenu[0] = new SystemStatus(false);
-                _MainMenu[1] = new WarningMessages();
-                _MainMenu[2] = new PersonalSettings();
-                _MainMenu[3] = new TemperatureInfo();
-                _MainMenu[4] = new TripInfo();
+                Console.WriteLine("hello");
+                //_MainMenu[0] = new SystemStatus(false);
+                //_MainMenu[1] = new WarningMessages();
+                //_MainMenu[2] = new PersonalSettings();
+                //_MainMenu[3] = new TemperatureInfo();
+                //_MainMenu[4] = new TripInfo();
 
-                MainMenu();
+               // MainMenu();
 
-                Console.WriteLine("Enter -1 to exit program");
-                _loopStopCondition = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
+                //Console.WriteLine("Enter -1 to exit program");
+                //_loopStopCondition = Convert.ToInt32(Console.ReadLine());
+                //Console.Clear();
 
             }//big looooooooooooooooooop!!
 
         }
-
+        /*
         public static void MainMenu()
         {
             ConsoleKeyInfo keypress = Console.ReadKey();
@@ -164,6 +173,6 @@ namespace Ksu.Cis501.evicSimulator
                 index++;
                 Console.WriteLine(options[index]);
             }
-        }
+        }*/
     }
 }
