@@ -34,6 +34,7 @@ namespace Ksu.Cis501.evicSimulator
             }
             
         }
+
         /// <summary>
         /// Get/Set for Metrics
         /// </summary>
@@ -46,14 +47,13 @@ namespace Ksu.Cis501.evicSimulator
 
         }
 
-
-
-
-
-
-
-
-
-
+        /// <summary>
+        /// Displays the Current object
+        /// </summary>
+        /// <returns>the type of the current object</returns>
+        public override string ToString()
+        {
+            return "Personal Settings";
+        }
     }
 }

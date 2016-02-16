@@ -11,7 +11,8 @@ namespace Ksu.Cis501.evicSimulator
         double _odometer;
         double _milesNextOilChange;
         bool _US;
-        bool _current;
+        bool _isItOdometer;
+        
 
 // constructors start here
 
@@ -23,8 +24,6 @@ namespace Ksu.Cis501.evicSimulator
             _US = isItUS;
         }
 
-
-
         //two parameter constructor	
         public SystemStatus(double odometer, double milesNextOilChange, bool isItUS)
         {
@@ -32,7 +31,23 @@ namespace Ksu.Cis501.evicSimulator
             _milesNextOilChange = milesNextOilChange;
             _US = isItUS;
         }
+
+        public double Odometer
+        {
+            get { return _odometer; }
+        }
+
+        public double Miles
+        {
+            get { return _milesNextOilChange;  }
+        }
         
+        public bool isItOdometer
+        {
+            get { return _isItOdometer; }
+            set { _isItOdometer = value; }
+        }
+
         public double UnitConverter()
         {
             double nuNumber = 0;
@@ -48,5 +63,16 @@ namespace Ksu.Cis501.evicSimulator
 
             return nuNumber;
         }
+
+        /// <summary>
+        /// Displays the Current object
+        /// </summary>
+        /// <returns>the type of the current object</returns>
+        public override string ToString()
+        {
+            return "System Status";
+        }
+
+
     }
 }

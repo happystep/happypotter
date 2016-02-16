@@ -41,8 +41,15 @@ namespace Ksu.Cis501.evicSimulator
         {
             _tripB = 0;
         }
-        
 
+        /// <summary>
+        /// Displays the Current object
+        /// </summary>
+        /// <returns>the type of the current object</returns>
+        public override string ToString()
+        {
+            return "Trip Info";
+        }
 
 
 

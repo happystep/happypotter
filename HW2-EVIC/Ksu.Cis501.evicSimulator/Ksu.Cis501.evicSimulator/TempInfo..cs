@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ksu.Cis501.evicSimulator
 {
-    class TemperatureInfo
+    public class TemperatureInfo
     {
         double _outsideTemperature;
         double _insideTemperature;
@@ -34,7 +34,14 @@ namespace Ksu.Cis501.evicSimulator
             return _outsideTemperature.ToString();
         }
 
-
+        /// <summary>
+        /// Displays the Current object
+        /// </summary>
+        /// <returns>the type of the current object</returns>
+        public override string ToString()
+        {
+            return "Temperature Info";
+        }
 
 
 

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Ksu.Cis501.evicSimulator
 {
-    class Program
+    public class Program
     {
         private static string[] options = { "System Status", "Warning Messages", "Personal Settings", "Temperature Info", "Trip Info" };
 
         private static int index = 0;
 
-       private static object[] _MainMenu = new Object[5];
+        private static object[] _MainMenu = new Object[5];
 
         private static int _loopStopCondition = 0;
 
@@ -20,16 +20,13 @@ namespace Ksu.Cis501.evicSimulator
         {
             while (_loopStopCondition != -1)
             {
-
                 _MainMenu[0] = new SystemStatus(false);
                 _MainMenu[1] = new WarningMessages();
                 _MainMenu[2] = new PersonalSettings();
                 _MainMenu[3] = new TemperatureInfo();
                 _MainMenu[4] = new TripInfo();
 
-
                 MainMenu();
-
 
                 Console.WriteLine("Enter -1 to exit program");
                 _loopStopCondition = Convert.ToInt32(Console.ReadLine());
@@ -43,7 +40,7 @@ namespace Ksu.Cis501.evicSimulator
         {
             ConsoleKeyInfo keypress = Console.ReadKey();
 
-            Console.WriteLine(options[index]);
+            Console.WriteLine(_MainMenu[index]);
             
             switch (keypress.Key)
             {
@@ -55,6 +52,9 @@ namespace Ksu.Cis501.evicSimulator
                     break;
                 case ConsoleKey.UpArrow:
                     MoveUp();
+                    break;
+                case ConsoleKey.DownArrow:
+                    MoveDown();
                     break;
                 case ConsoleKey.Spacebar:
                     break;
@@ -69,7 +69,22 @@ namespace Ksu.Cis501.evicSimulator
         /// </summary>
         public static void MoveUp()
         {
+            switch(index)
+            {
+                case 0:
+                    //system status
 
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
 
 
 
@@ -81,7 +96,24 @@ namespace Ksu.Cis501.evicSimulator
         /// </summary>
         public static void MoveDown()
         {
+            switch (index)
+            {
+                case 0:
+                    //system status
+                    _MainMenu[0] = new SystemStatus(false);
+                    if () ;
+                    Console.WriteLine("Odometer is at " + _MainMenu[index].ToString());
+                    break;
+                case 1:
 
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
 
 
