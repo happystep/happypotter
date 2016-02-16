@@ -32,22 +32,33 @@ namespace Ksu.Cis501.evicSimulator
             _US = isItUS;
         }
 
+        /// <summary>
+        /// gets the latest odometer set
+        /// </summary>
         public double Odometer
         {
             get { return _odometer; }
         }
 
+        /// <summary>
+        /// gets the number until the next oil change
+        /// </summary>
         public double Miles
         {
             get { return _milesNextOilChange;  }
         }
-        
+       
+        //checks if the current state is odometer or not 
         public bool isItOdometer
         {
             get { return _isItOdometer; }
             set { _isItOdometer = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public double UnitConverter()
         {
             double nuNumber = 0;

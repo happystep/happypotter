@@ -96,16 +96,28 @@ namespace Ksu.Cis501.evicSimulator
         /// </summary>
         public static void MoveDown()
         {
+            SystemStatus ss = new SystemStatus(false);
+            WarningMessages wm = new WarningMessages();
+            PersonalSettings ps = new PersonalSettings();
             switch (index)
             {
                 case 0:
                     //system status
-                    _MainMenu[0] = new SystemStatus(false);
-                    if () ;
-                    Console.WriteLine("Odometer is at " + _MainMenu[index].ToString());
+                    _MainMenu[0] = ss;
+                    if (ss.isItOdometer == true)
+                    {
+                        Console.WriteLine("Odometer is at " + _MainMenu[index].ToString());
+                    }
+                    else
+                    {//display miles until next oil change
+                        Console.WriteLine(ss.Miles + " until next oil change");
+                    }
                     break;
                 case 1:
-
+                    
+                    //warning messages
+                    double miles = ss.Odometer;
+                    wm.DisplayMessages(miles);
                     break;
                 case 2:
                     break;
