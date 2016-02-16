@@ -8,7 +8,7 @@ namespace Ksu.Cis501.evicSimulator
 {
     public class PersonalSettings
     {
-        //This class will check the current settings (us or metric) and change it to the other one IF theuser presses the space bar
+        //This class will check the current settings (us or metric) and change it to the other one IF the user presses the space bar
         /// <summary>
         /// saves the default current setting 
         /// False: Metric
@@ -30,7 +30,7 @@ namespace Ksu.Cis501.evicSimulator
         /// <summary>
         /// Get/Set for US
         /// </summary>
-        public bool ChangeToUS
+        public bool ChangeUS
             {
             get { return _US; }
             set { _US = value; }
@@ -40,7 +40,7 @@ namespace Ksu.Cis501.evicSimulator
         /// <summary>
         /// Get/Set for Metrics
         /// </summary>
-        public bool ChangeToMetric
+        public bool ChangeMetric
         {
             get { return _metric; }
             set { _metric = value; }
