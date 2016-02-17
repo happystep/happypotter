@@ -40,7 +40,7 @@ namespace Ksu.Cis501.evicSimulator
         /// <summary>
         /// array of ints that hold the random numbers for the regular run
         /// </summary>
-        private static int[] randomNumbers = { r.Next(1, 100000), r.Next(1, 3000), r.Next(2), r.Next(2), r.Next(2), r.Next(20, 112), r.Next(32, 112), r.Next(1, 20000), r.Next(1, 5000) };
+        private static int[] randomNumbers = { r.Next(1, 100000), r.Next(1, 3000), r.Next(2), r.Next(2), r.Next(20, 112), r.Next(32, 112), r.Next(1, 20000), r.Next(1, 5000) };
 
         /// <summary>
         /// this three booleans (first two random) trigger their respective warnings. 
@@ -117,6 +117,7 @@ namespace Ksu.Cis501.evicSimulator
                     break;
                 case 2: //personal settings
                     personalSettings.toggle();
+                    personalSettings.display();
                     break;
                 case 3://empty
                     break;
@@ -147,6 +148,11 @@ namespace Ksu.Cis501.evicSimulator
                     if (randomNumbers[3] == 1) { engine = true; }
                     else { engine = false; }
 
+                    if(status.Oil < 300)
+                    {
+                        oilchange = true;
+                    }
+
                     warning.toggle(door, engine, oilchange);
                     warning.display();
                     break;
@@ -155,11 +161,11 @@ namespace Ksu.Cis501.evicSimulator
                     break;
                 case 3:
                     temp.toggle();
-                    temp.display(randomNumbers[5], randomNumbers[6]);
+                    temp.display(randomNumbers[4], randomNumbers[5]);
                     break;
                 case 4:
                     trip.toggle();
-                    trip.display(randomNumbers[7], randomNumbers[8]);
+                    trip.display(randomNumbers[6], randomNumbers[7]);
                     break;
                 default:
                     break;

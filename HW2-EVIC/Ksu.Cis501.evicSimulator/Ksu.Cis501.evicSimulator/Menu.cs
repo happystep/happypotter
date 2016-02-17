@@ -9,6 +9,7 @@ namespace Ksu.Cis501.evicSimulator
     public class Menu
     {
         public static bool _isMetric = false;
+        public static bool _isToggled = false; //toggled means metric system on
 
         public Menu()
         {
@@ -20,10 +21,12 @@ namespace Ksu.Cis501.evicSimulator
             if (_isMetric == false)
             {
                 _isMetric = true;
+                _isToggled = true;
             }
             else if (_isMetric == true)
             {
                 _isMetric = false;
+                _isToggled = false;
             } 
         }
 
@@ -48,6 +51,16 @@ namespace Ksu.Cis501.evicSimulator
             return "Personal Settings";
         }
 
+        public static double ConvertToKM(double mi)
+        {
+            return mi * 1.609344;
+        }
+
+        public static double ConvertToMI(double km)
+        {
+            return km / 1.609344;
+        }
+
     }//end class menu
 
     public class Status : Menu
@@ -56,6 +69,11 @@ namespace Ksu.Cis501.evicSimulator
         double _odometer = 0;
         double _oilChange = 0;
         bool _isOdometer = false;
+
+        public double Oil
+        {
+            get { return _oilChange; }
+        }
 
         public override void toggle()
         {
@@ -85,7 +103,8 @@ namespace Ksu.Cis501.evicSimulator
 
             else if (_isMetric == true && _isOdometer == true)
             {
-                _odometer = _odometer * 1.6;
+                _odometer = Menu.ConvertToKM(_odometer);
+
                 Console.WriteLine(_odometer.ToString() + " km");
 
             }
@@ -97,8 +116,13 @@ namespace Ksu.Cis501.evicSimulator
             }
             else if (_isMetric == true && _isOdometer == false)
             {
-                _odometer = _odometer * 1.6;
+                _odometer = Menu.ConvertToKM(_odometer);
                 Console.WriteLine("Next oil change in " + _oilChange.ToString()+ " km");
+            }
+            else if (_isMetric == false && _isOdometer == true && _isToggled == true)
+            {
+                _odometer = Menu.ConvertToMI(_odometer);
+                Console.WriteLine(_odometer.ToString() + " mi");
             }
 
         }
@@ -147,25 +171,25 @@ namespace Ksu.Cis501.evicSimulator
             //inside variations
             if (_isInside == true && _isMetric == false)
             {
-                Console.WriteLine(_insideTemperature + "F Inside");
+                Console.WriteLine(_insideTemperature + "°F Inside");
             }
             else if (_isInside == true && _isMetric == true)
             {
                 _insideTemperature = ConvertToCelsius(_insideTemperature);
                     //(((_insideTemperature * 9) / 5) + 32);
-                Console.WriteLine(_insideTemperature + "C Inside");
+                Console.WriteLine(_insideTemperature + "°C Inside");
             }
             //ouside variations
             else if (_isInside == false && _isMetric == false)
             {
-                Console.WriteLine(_outsideTemperature + "F Outside");
+                Console.WriteLine(_outsideTemperature + "°F Outside");
             }
             else if (_isInside == false && _isMetric == true)
             {
                 
                 _outsideTemperature = ConvertToCelsius(_outsideTemperature);
                 //(((_outsideTemperature * 9) / 5) + 32);
-                Console.WriteLine(_outsideTemperature + "C Outside");
+                Console.WriteLine(_outsideTemperature + "°C Outside");
             }
 
 
@@ -195,7 +219,7 @@ namespace Ksu.Cis501.evicSimulator
 
     } 
 
-    public class Trip :Menu
+    public class Trip : Menu
     {
         bool _isTripA = false;
 
@@ -214,21 +238,36 @@ namespace Ksu.Cis501.evicSimulator
         double _tripA = 0;
         double _tripB = 0;
 
-       public void display (int tripA, int tripB)
+        public void display(int tripA, int tripB)
         {
             Console.Clear();
             Console.WriteLine("Trip Information");
 
             _tripA = tripA;
             _tripB = tripB;
-
-            if (_isTripA == true)
+            //initial print
+            if (_isTripA == true && _isMetric == false )
             {
                 Console.WriteLine("Trip-A: " + _tripA);
             }
-            else if (_isTripA == false)
+            else if (_isTripA == false && _isMetric == true)
+            {
+                _tripB = Menu.ConvertToKM(_tripB);
+                Console.WriteLine("Trip-B: " + _tripB);
+            }
+            else if (_isTripA == true && _isMetric == true)
+            {
+                _tripA = Menu.ConvertToKM(_tripA);
+                Console.WriteLine("Trip-A: " + _tripA);
+            }
+            else if (_isTripA == false && _isMetric == false)
             {
                 Console.WriteLine("Trip-B: " + _tripB);
+            }
+            else if (_isTripA == true && _isMetric == false && _isToggled == false)
+            {
+                _tripA = Menu.ConvertToMI(_tripA);
+                Console.WriteLine("Trip-A: " + _tripA);
             }
 
         } 
@@ -254,7 +293,7 @@ namespace Ksu.Cis501.evicSimulator
         bool _doorAjar = false;
         bool _CheckEngine = false;
         bool _oilChange = false;
-
+            
         public void toggle(bool a, bool b, bool c)
         { 
             //door settings
