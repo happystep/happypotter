@@ -248,26 +248,26 @@ namespace Ksu.Cis501.evicSimulator
             //initial print
             if (_isTripA == true && _isMetric == false )
             {
-                Console.WriteLine("Trip-A: " + _tripA);
+                Console.WriteLine("Trip-A: " + _tripA + " mi");
             }
             else if (_isTripA == false && _isMetric == true)
             {
                 _tripB = Menu.ConvertToKM(_tripB);
-                Console.WriteLine("Trip-B: " + _tripB);
+                Console.WriteLine("Trip-B: " + _tripB + " km");
             }
             else if (_isTripA == true && _isMetric == true)
             {
                 _tripA = Menu.ConvertToKM(_tripA);
-                Console.WriteLine("Trip-A: " + _tripA);
+                Console.WriteLine("Trip-A: " + _tripA + " km");
             }
-            else if (_isTripA == false && _isMetric == false)
+            else if (_isTripA == false && _isMetric == false) //miles or kilometers atm????
             {
                 Console.WriteLine("Trip-B: " + _tripB);
             }
             else if (_isTripA == true && _isMetric == false && _isToggled == false)
             {
                 _tripA = Menu.ConvertToMI(_tripA);
-                Console.WriteLine("Trip-A: " + _tripA);
+                Console.WriteLine("Trip-A: " + _tripA + " mi");
             }
 
         } 
