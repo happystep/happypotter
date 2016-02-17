@@ -14,11 +14,14 @@ namespace Ksu.Cis501.evicSimulator
 
         private static object[] _MainMenu = new Object[5];
 
-        private static int _loopStopCondition = 0;
 
-        private SystemStatus ss = new SystemStatus(false);
-        private WarningMessages wm = new WarningMessages();
-        private PersonalSettings ps = new PersonalSettings();
+       private static Menu[] test;
+
+        private static Status status = new Status();
+        private static Temperature temp = new Temperature();
+        private static Trip trip = new Trip();
+        private static Warning warning = new Warning();
+        private static Menu personalSettings = new Menu();
 
         public static void Main(string[] args)
         {
@@ -26,34 +29,17 @@ namespace Ksu.Cis501.evicSimulator
             Console.WriteLine("1) Simulation");
             Console.WriteLine("2) Regular Run");
 
-            
-
-
-
-            while (_loopStopCondition != -1)
+            while (true)
             {
-                Console.WriteLine("hello");
-                //_MainMenu[0] = new SystemStatus(false);
-                //_MainMenu[1] = new WarningMessages();
-                //_MainMenu[2] = new PersonalSettings();
-                //_MainMenu[3] = new TemperatureInfo();
-                //_MainMenu[4] = new TripInfo();
-
-               // MainMenu();
-
-                //Console.WriteLine("Enter -1 to exit program");
-                //_loopStopCondition = Convert.ToInt32(Console.ReadLine());
-                //Console.Clear();
-
+                MainMenu();
+               
             }//big looooooooooooooooooop!!
 
         }
-        /*
+        
         public static void MainMenu()
         {
             ConsoleKeyInfo keypress = Console.ReadKey();
-
-            Console.WriteLine(_MainMenu[index]);
             
             switch (keypress.Key)
             {
@@ -70,6 +56,7 @@ namespace Ksu.Cis501.evicSimulator
                     MoveUpDown();
                     break;
                 case ConsoleKey.Spacebar:
+                    BarSpace();
                     break;
                 default:
                     break;
@@ -77,44 +64,61 @@ namespace Ksu.Cis501.evicSimulator
 
         }//end mainmenu
         
+        public static void BarSpace()
+        {
+            switch(index)
+            {
+                case 0://change oil to 3000 miles
+                    status.Reset();
+                    break;
+                case 1://empty
+                    break;
+                case 2: //personal settings
+                    personalSettings.toggle();
+                    break;
+                case 3://empty
+                    break;
+                case 4://reset the trip to 0
+                    trip.Reset();
+                    break;
+            }
+                
+        }
+
         /// <summary>
         /// Moves nad displays the main menu to the option indicated down 
         /// </summary>
         public static void MoveUpDown()
         {
-            SystemStatus ss = new SystemStatus(false);
-            WarningMessages wm = new WarningMessages();
-            PersonalSettings ps = new PersonalSettings();
+           
             switch (index)
             {
                 case 0:
                     //system status
-                    _MainMenu[0] = ss;
-                    if (ss.isItOdometer == true)
-                    {
-                        Console.WriteLine("Odometer is at " + _MainMenu[index].ToString());
-                    }
-                    else
-                    {//display miles until next oil change
-                        Console.WriteLine(ss.Miles + " until next oil change");
-                    }
+                    status.toggle();
+                    status.display();
                     break;
                 case 1:
-                    
                     //warning messages
-                    double miles = ss.Odometer;
-                    wm.DisplayMessages(miles);
+                    warning.toggle(false, true, false);
+                    warning.display();
                     break;
                 case 2:
+                    personalSettings.display();
                     break;
                 case 3:
+                    temp.toggle();
+                    temp.display();
                     break;
                 case 4:
+                    trip.toggle();
+                    trip.display();
                     break;
+                default:
+                    break;
+
             }
         }
-
-
 
         /// <summary>
         /// Moves and displays the main menu to the option to the left
@@ -150,6 +154,6 @@ namespace Ksu.Cis501.evicSimulator
                 index++;
                 Console.WriteLine(options[index]);
             }
-        }*/
+        }
     }
 }

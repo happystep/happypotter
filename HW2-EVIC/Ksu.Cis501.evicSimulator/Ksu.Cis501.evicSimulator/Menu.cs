@@ -9,9 +9,14 @@ namespace Ksu.Cis501.evicSimulator
     public class Menu
     {
         
-      public static bool _isMetric = false;
+        public static bool _isMetric = false;
 
-       public virtual void toggle()
+        public Menu()
+        {
+
+        }
+
+        public virtual void toggle()
         {
             if (_isMetric == false)
             {
@@ -25,13 +30,23 @@ namespace Ksu.Cis501.evicSimulator
 
         public virtual void display()
         {
-            
+            if (_isMetric == false)
+            {
+                Console.WriteLine("US Units");
+            }
+            else if (_isMetric == true)
+            {
+                Console.WriteLine("Metric Units");
+            }
 
 
         }
+        public  override string ToString()
+        {
+            return "Personal Settings";
+        }
 
-
-    }
+    }//end class menu
 
     public class Status : Menu
     {
@@ -42,6 +57,7 @@ namespace Ksu.Cis501.evicSimulator
 
         public override void toggle()
         {
+
             if (_isOdometer == false)
             {
                 _isOdometer = true;
@@ -54,6 +70,9 @@ namespace Ksu.Cis501.evicSimulator
         }
         public override void display()
         {
+            Console.Clear();
+            Console.WriteLine("System Status");
+
             //settings for odometer
             if (_isMetric == false && _isOdometer == true)
             {
@@ -67,7 +86,7 @@ namespace Ksu.Cis501.evicSimulator
 
             }
             //settings for oil change
-           else if (_isMetric == false && _isOdometer == false)
+            else if (_isMetric == false && _isOdometer == false)
             {
                 Console.WriteLine(_odometer.ToString());
             }
@@ -83,7 +102,20 @@ namespace Ksu.Cis501.evicSimulator
 
         }
 
+        public void Reset()
+        {
+            Console.Clear();
+            Console.WriteLine("System Status");
 
+            if (_isMetric == true)
+            {
+                Console.WriteLine("Oil change in 4828.032 Kilometers");
+            }
+            else
+            {
+                Console.WriteLine("Oil change in 3000 Miles");
+            }
+        }
     }
 
     public class Temperature : Menu
@@ -106,6 +138,9 @@ namespace Ksu.Cis501.evicSimulator
 
         public override void display()
         {
+            Console.Clear();
+            Console.WriteLine("Temperature Information");
+
             //inside variations
             if (_isInside == true && _isMetric == false)
             {
@@ -151,11 +186,14 @@ namespace Ksu.Cis501.evicSimulator
             }            
         }
 
-        double _tripA;
-        double _tripB;
+        double _tripA = 0;
+        double _tripB = 0;
 
        public override void display ()
         {
+            Console.Clear();
+            Console.WriteLine("Trip Information");
+
             if (_isTripA == true)
             {
                 Console.WriteLine("Trip-A: " + _tripA);
@@ -167,8 +205,20 @@ namespace Ksu.Cis501.evicSimulator
 
         } 
 
+        public void Reset()
+        {
+            Console.Clear();
+            Console.WriteLine("Trip Information");
+            if (_isTripA == true)
+            {
+                _tripA = 0;
 
-
+            }
+            else
+            {
+                _tripB = 0;
+            }
+        }
     }
 
     public class Warning : Menu
@@ -212,6 +262,8 @@ namespace Ksu.Cis501.evicSimulator
 
         public override void display()
         {
+            Console.Clear();
+            Console.WriteLine("Warning Messages");
            if (_doorAjar == true)
             {
                 Console.WriteLine("Door Ajar!");
