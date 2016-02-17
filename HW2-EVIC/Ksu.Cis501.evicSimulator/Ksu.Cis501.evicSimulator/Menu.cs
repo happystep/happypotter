@@ -110,11 +110,11 @@ namespace Ksu.Cis501.evicSimulator
 
             if (_isMetric == true)
             {
-                Console.WriteLine("Oil change in 4828.032 Kilometers");
+                Console.WriteLine("Next oil change in 4828.032 km");
             }
             else
             {
-                Console.WriteLine("Oil change in 3000 Miles");
+                Console.WriteLine("Next oil change in 3000 mi");
             }
         }
     }
@@ -147,12 +147,12 @@ namespace Ksu.Cis501.evicSimulator
             //inside variations
             if (_isInside == true && _isMetric == false)
             {
-
                 Console.WriteLine(_insideTemperature + "F Inside");
             }
             else if (_isInside == true && _isMetric == true)
             {
-                _insideTemperature = (((_insideTemperature * 9) / 5) + 32);
+                _insideTemperature = ConvertToCelsius(_insideTemperature);
+                    //(((_insideTemperature * 9) / 5) + 32);
                 Console.WriteLine(_insideTemperature + "C Inside");
             }
             //ouside variations
@@ -162,14 +162,36 @@ namespace Ksu.Cis501.evicSimulator
             }
             else if (_isInside == false && _isMetric == true)
             {
-                _outsideTemperature = (((_outsideTemperature * 9) / 5) + 32);
+                
+                _outsideTemperature = ConvertToCelsius(_outsideTemperature);
+                //(((_outsideTemperature * 9) / 5) + 32);
                 Console.WriteLine(_outsideTemperature + "C Outside");
             }
 
 
         }
 
+        /// <summary>
+        /// converts parameter (farhernheit to celsius)
+        /// </summary>
+        /// <param name="f">farenheit number</param>
+        /// <returns>new number in celsius units</returns>
+        public double ConvertToCelsius(double f)
+        {
+            double c = (5.0 / 9.0) * (f-32);
+            return c;
+        }
 
+        /// <summary>
+        /// Converts parameter to farhenheit
+        /// </summary>
+        /// <param name="c">celsius number</param>
+        /// <returns>resulting farhenheit number</returns>
+        public double ConvertToFarhenheit(double c)
+        {
+            double f = ((c * 9)/5) + 32;
+            return f;
+        }
 
     } 
 
@@ -224,7 +246,7 @@ namespace Ksu.Cis501.evicSimulator
             {
                 _tripB = 0;
             }
-        }
+        }//do we want to display after resetting
     }
 
     public class Warning : Menu
@@ -279,7 +301,7 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine("Check Engine Soon!");
 
             }
-           else if (_oilChange)
+           else if (_oilChange == true)
             {
                 Console.WriteLine("Oil Change!");
             }

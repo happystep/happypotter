@@ -19,19 +19,34 @@ namespace Ksu.Cis501.evicSimulator
         private static int index = 0;
 
         /// <summary>
-        /// 
+        /// checks whether the userchose simulator mode or not
         /// </summary>
         private static bool _Simulator = false;
 
+        /// <summary>
+        /// The next five objects are instances of each main menu, along with its different properties
+        /// </summary>
+        private static Menu personalSettings = new Menu();
+        private static Warning warning = new Warning();
         private static Status status = new Status();
         private static Temperature temp = new Temperature();
         private static Trip trip = new Trip();
-        private static Warning warning = new Warning();
-        private static Menu personalSettings = new Menu();
 
+        /// <summary>
+        /// New object random to use for numbers while the program is not in simulator mode
+        /// </summary>
         private static Random r = new Random();
 
-        
+        /// <summary>
+        /// array of ints that hold the random numbers for the regular run
+        /// </summary>
+        private static int[] randomNumbers = { r.Next(1, 100000), r.Next(1, 3000), r.Next(2), r.Next(2), r.Next(2), r.Next(20, 112), r.Next(32, 112), r.Next(1, 20000), r.Next(1, 5000) };
+
+        /// <summary>
+        /// this three booleans (first two random) trigger their respective warnings. 
+        /// As for the oil change, it will be triggered iff the 'miles to next oil change is 0'
+        /// </summary>
+        private static bool door, engine, oilchange;
 
         public static void Main(string[] args)
         {
@@ -48,6 +63,8 @@ namespace Ksu.Cis501.evicSimulator
                 }
                 else if (answer == 2)
                 {
+                    Console.Clear();
+                    Console.WriteLine("You chose the Regular Run. Use the <- -> arrows to navigate through the Main Menu");
                     _Simulator = false;
                     while (true)
                     {
@@ -60,9 +77,8 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine(ex.ToString());
             }
            
+        }//end main class
 
-        }
-        
         public static void MainMenu()
         {
             ConsoleKeyInfo keypress = Console.ReadKey();
@@ -115,18 +131,23 @@ namespace Ksu.Cis501.evicSimulator
         /// Moves nad displays the main menu to the option indicated down 
         /// </summary>
         public static void MoveUpDown()
-        {
-           
+        {  
             switch (index)
             {
                 case 0:
                     //system status
                     status.toggle();
-                    status.display(r.Next(1, 100000), r.Next(1, 3000));
+                    status.display(randomNumbers[0], randomNumbers[1]);
                     break;
                 case 1:
                     //warning messages
-                    warning.toggle(false, true, false);
+                    if(randomNumbers[2] == 1) { door = true; }
+                    else { door = false; }
+
+                    if (randomNumbers[3] == 1) { engine = true; }
+                    else { engine = false; }
+
+                    warning.toggle(door, engine, oilchange);
                     warning.display();
                     break;
                 case 2:
@@ -134,11 +155,11 @@ namespace Ksu.Cis501.evicSimulator
                     break;
                 case 3:
                     temp.toggle();
-                    temp.display(r.Next(20,112), r.Next(32, 112));
+                    temp.display(randomNumbers[5], randomNumbers[6]);
                     break;
                 case 4:
                     trip.toggle();
-                    trip.display(r.Next(1, 20000), r.Next(1, 5000));
+                    trip.display(randomNumbers[7], randomNumbers[8]);
                     break;
                 default:
                     break;
