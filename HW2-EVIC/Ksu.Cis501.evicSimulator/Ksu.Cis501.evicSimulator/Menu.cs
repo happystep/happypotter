@@ -8,7 +8,6 @@ namespace Ksu.Cis501.evicSimulator
 {
     public class Menu
     {
-        
         public static bool _isMetric = false;
 
         public Menu()
@@ -30,6 +29,9 @@ namespace Ksu.Cis501.evicSimulator
 
         public virtual void display()
         {
+            Console.Clear();
+            Console.WriteLine("Personal Settings");
+
             if (_isMetric == false)
             {
                 Console.WriteLine("US Units");
@@ -68,37 +70,36 @@ namespace Ksu.Cis501.evicSimulator
             }
           
         }
-        public override void display()
+        public void display(int randomOdometer, int randomOilChange)
         {
             Console.Clear();
             Console.WriteLine("System Status");
 
-            //settings for odometer
+            _odometer = randomOdometer;
+            _oilChange = randomOilChange;
+
             if (_isMetric == false && _isOdometer == true)
             {
-                Console.WriteLine(_odometer.ToString());
+                Console.WriteLine(_odometer.ToString() + " mi");
             }
 
             else if (_isMetric == true && _isOdometer == true)
             {
                 _odometer = _odometer * 1.6;
-                Console.WriteLine(_odometer.ToString());
+                Console.WriteLine(_odometer.ToString() + " km");
 
             }
+
             //settings for oil change
-            else if (_isMetric == false && _isOdometer == false)
+            if (_isMetric == false && _isOdometer == false)
             {
-                Console.WriteLine(_odometer.ToString());
+                Console.WriteLine("Next oil change in " + _oilChange.ToString() + " mi");
             }
             else if (_isMetric == true && _isOdometer == false)
             {
                 _odometer = _odometer * 1.6;
-                Console.WriteLine(_odometer.ToString());
-
+                Console.WriteLine("Next oil change in " + _oilChange.ToString()+ " km");
             }
-
-
-
 
         }
 
@@ -136,11 +137,13 @@ namespace Ksu.Cis501.evicSimulator
             }
         }
 
-        public override void display()
+        public void display(int insideTemp, int outsideTemp)
         {
             Console.Clear();
             Console.WriteLine("Temperature Information");
 
+            _outsideTemperature = outsideTemp;
+            _insideTemperature = insideTemp;
             //inside variations
             if (_isInside == true && _isMetric == false)
             {
@@ -189,10 +192,13 @@ namespace Ksu.Cis501.evicSimulator
         double _tripA = 0;
         double _tripB = 0;
 
-       public override void display ()
+       public void display (int tripA, int tripB)
         {
             Console.Clear();
             Console.WriteLine("Trip Information");
+
+            _tripA = tripA;
+            _tripB = tripB;
 
             if (_isTripA == true)
             {

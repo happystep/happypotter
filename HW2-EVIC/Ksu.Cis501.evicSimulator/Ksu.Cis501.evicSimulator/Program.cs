@@ -8,14 +8,20 @@ namespace Ksu.Cis501.evicSimulator
 {
     public class Program
     {
-        private static string[] options = { "System Status", "Warning Messages", "Personal Settings", "Temperature Info", "Trip Info" };
-
+        /// <summary>
+        /// list of main menu options that help the program keep track of where the program is at
+        /// </summary>
+        private static string[] options = { "System Status", "Warning Messages", "Personal Settings", "Temperature Information", "Trip Information" };
+        
+        /// <summary>
+        /// Keeps track of where the user is at
+        /// </summary>
         private static int index = 0;
 
-        private static object[] _MainMenu = new Object[5];
-
-
-       private static Menu[] test;
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool _Simulator = false;
 
         private static Status status = new Status();
         private static Temperature temp = new Temperature();
@@ -23,17 +29,37 @@ namespace Ksu.Cis501.evicSimulator
         private static Warning warning = new Warning();
         private static Menu personalSettings = new Menu();
 
+        private static Random r = new Random();
+
+        
+
         public static void Main(string[] args)
         {
             Console.WriteLine("Which mode would you like to enter?");
             Console.WriteLine("1) Simulation");
             Console.WriteLine("2) Regular Run");
 
-            while (true)
+            try
             {
-                MainMenu();
-               
-            }//big looooooooooooooooooop!!
+                int answer = Convert.ToInt32(Console.ReadLine());
+                if ( answer == 1)
+                {
+                    _Simulator = true;
+                }
+                else if (answer == 2)
+                {
+                    _Simulator = false;
+                    while (true)
+                    {
+                        MainMenu();
+                    }//big looooooooooooooooooop!!
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+           
 
         }
         
@@ -96,7 +122,7 @@ namespace Ksu.Cis501.evicSimulator
                 case 0:
                     //system status
                     status.toggle();
-                    status.display();
+                    status.display(r.Next(1, 100000), r.Next(1, 3000));
                     break;
                 case 1:
                     //warning messages
@@ -108,11 +134,11 @@ namespace Ksu.Cis501.evicSimulator
                     break;
                 case 3:
                     temp.toggle();
-                    temp.display();
+                    temp.display(r.Next(20,112), r.Next(32, 112));
                     break;
                 case 4:
                     trip.toggle();
-                    trip.display();
+                    trip.display(r.Next(1, 20000), r.Next(1, 5000));
                     break;
                 default:
                     break;
