@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Assignment 2 (Programming Assignment 1)
+* Luis Bobadilla & Paula Mendez
+* CIS 501 - Software Architecture and Design
+* 02/17/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,6 +67,7 @@ namespace Ksu.Cis501.evicSimulator
                 if ( answer == 1)
                 {
                     _Simulator = true;
+                    Simulator();
                 }
                 else if (answer == 2)
                 {
@@ -208,5 +216,170 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine(options[index]);
             }
         }
+
+        public static void Simulator()
+        {
+            Console.WriteLine("1) System Status");
+            Console.WriteLine("2) Warning Messages");
+            Console.WriteLine("3) Temperature");
+            int answer = Convert.ToInt32(Console.ReadLine());
+
+            if (answer == 1)
+            {
+                option1();
+            }
+            else if (answer == 2)
+            {
+                option2();
+            }
+            else if (answer == 3)
+            {
+                option3();
+            }
+
+
+        }
+        public static void option1()
+        {
+            while (true)
+            {
+                index = 0;
+                status.display(randomNumbers[0], randomNumbers[1]);
+                ConsoleKeyInfo keypress = Console.ReadKey();
+                switch (keypress.Key)
+                {
+                    case ConsoleKey.Enter:
+                        status.Increment();
+                        trip.Increment();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        MoveUpDown();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        MoveUpDown();
+                        break;
+                    default:
+                        break;
+
+                }
+                status.display(randomNumbers[0], randomNumbers[1]);
+            }
+            
+        }
+
+        public static void option2()
+        {
+            index = 1;
+            Console.WriteLine("Toggle Warning Messages");
+                Console.WriteLine("a) Door ajar");
+                Console.WriteLine("b) Check Engine Soon");
+                Console.WriteLine("c) Oil Change");
+            while (true)
+            {
+                bool a = false;
+                bool b = false;
+                bool c = false;
+
+                
+
+                char answer = Convert.ToChar(Console.ReadLine());
+
+                if (answer == 'a')
+                {
+                    a = true;
+                }
+                else if (answer == 'b')
+                {
+                    b = true;
+                }
+                else if (answer == 'c')
+                {
+                    c = true;
+                }
+
+                warning.toggle(a, b, c);
+                warning.display();
+
+            }
+
+        }
+
+        public static void option3()
+        {
+            index = 3;
+            Console.WriteLine("a) Outside Temperature");
+            Console.WriteLine("b) Inside Temperature");
+            char answer = Convert.ToChar(Console.ReadLine());
+            bool insideToggle = false;
+
+            while (true)
+            {
+                if (answer == 'a')
+                {
+                    Console.WriteLine("Please enter avalue in F"
+                        + "ahrenheit for the Ouside temperature:");
+                    int outsideTemp = Convert.ToInt32(Console.ReadLine());
+                 //   ConsoleKeyInfo keypress = Console.ReadKey();
+
+                    temp.display(randomNumbers[4], outsideTemp);
+
+                    //switch (keypress.Key)
+                    //{
+
+                    //    case ConsoleKey.UpArrow:
+                    //        temp.toggle();
+                    //        break;
+                    //    case ConsoleKey.DownArrow:
+                    //        temp.toggle();
+                    //        break;
+                    //    default:
+                    //        break;
+
+                    //}
+
+
+
+                }
+
+
+
+
+                else if (answer == 'b')
+                {
+                    Console.WriteLine("Please enter a value in F"
+                        + "ahrenheit for the Inside temperature:");
+
+
+                    int insideTemp = Convert.ToInt32(Console.ReadLine());
+                    //   ConsoleKeyInfo keypress = Console.ReadKey();
+                    if (insideToggle == false)
+                    {
+
+                        temp.toggle();
+                        insideToggle = true;
+                    }
+                    temp.display(insideTemp, randomNumbers[5]);
+
+                    //switch (keypress.Key)
+                    //{
+
+                    //    case ConsoleKey.UpArrow:
+                    //        temp.toggle();
+                    //        break;
+                    //    case ConsoleKey.DownArrow:
+                    //        temp.toggle();
+                    //        break;
+                    //    default:
+                    //        break;
+
+                    //}
+                }
+
+
+
+            }
+        }
+
+
     }
 }

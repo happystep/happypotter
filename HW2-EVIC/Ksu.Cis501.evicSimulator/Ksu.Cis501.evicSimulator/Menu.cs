@@ -65,7 +65,7 @@ namespace Ksu.Cis501.evicSimulator
 
     public class Status : Menu
     {
-
+        bool _increment = false;
         double _odometer = 0;
         double _oilChange = 0;
         bool _isOdometer = false;
@@ -93,8 +93,18 @@ namespace Ksu.Cis501.evicSimulator
             Console.Clear();
             Console.WriteLine("System Status");
 
-            _odometer = randomOdometer;
+           
+
+            if (_increment == true)
+            {
+                _odometer = _odometer;
+                _oilChange = _oilChange;
+            }
+            else
+            { _odometer = randomOdometer;
             _oilChange = randomOilChange;
+
+            }
 
             if (_isMetric == false && _isOdometer == true)
             {
@@ -141,6 +151,14 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine("Next oil change in 3000 mi");
             }
         }
+
+        public void Increment()
+        {
+            _odometer++;
+            _oilChange--;
+            _increment = true;
+        }
+
     }
 
     public class Temperature : Menu
@@ -165,6 +183,8 @@ namespace Ksu.Cis501.evicSimulator
         {
             Console.Clear();
             Console.WriteLine("Temperature Information");
+
+
 
             _outsideTemperature = outsideTemp;
             _insideTemperature = insideTemp;
@@ -221,6 +241,7 @@ namespace Ksu.Cis501.evicSimulator
 
     public class Trip : Menu
     {
+        bool _increment = false;
         bool _isTripA = false;
 
         public override void toggle()
@@ -243,8 +264,18 @@ namespace Ksu.Cis501.evicSimulator
             Console.Clear();
             Console.WriteLine("Trip Information");
 
-            _tripA = tripA;
-            _tripB = tripB;
+
+            if (_increment == true)
+            {
+                _tripA = _tripA;
+                _tripB = _tripB;
+
+            }
+            else
+            {
+                _tripA = tripA;
+                _tripB = tripB;
+            }
             //initial print
             if (_isTripA == true && _isMetric == false )
             {
@@ -269,6 +300,7 @@ namespace Ksu.Cis501.evicSimulator
                 _tripA = Menu.ConvertToMI(_tripA);
                 Console.WriteLine("Trip-A: " + _tripA + " mi");
             }
+  
 
         } 
 
@@ -285,7 +317,18 @@ namespace Ksu.Cis501.evicSimulator
             {
                 _tripB = 0;
             }
-        }//do we want to display after resetting
+        }//do we want to display after resetting - maybe Paula.. Maybe.. 
+
+        public void Increment ()
+        {
+            _tripA++;
+            _tripB++;
+
+        }
+
+
+
+
     }
 
     public class Warning : Menu
@@ -335,12 +378,12 @@ namespace Ksu.Cis501.evicSimulator
             {
                 Console.WriteLine("Door Ajar!");
             }
-           else if (_CheckEngine == true)
+           if (_CheckEngine == true)
             {
                 Console.WriteLine("Check Engine Soon!");
 
             }
-           else if (_oilChange == true)
+          if (_oilChange == true)
             {
                 Console.WriteLine("Oil Change!");
             }
