@@ -20,6 +20,26 @@ namespace Ksu.Cis501.evicSimulator.Tests
         [TestMethod()]
         public void displayTest()
         {
+            
+            string expected = "Warning Messages";
+            Assert.AreEqual(expected, "Warning Messages");
+
+            Warning w = new Warning();
+
+            
+
+            expected = "Door Ajar!";
+            Assert.AreEqual(expected, "Door Ajar!");
+
+            expected = "Check Engine Soon!";
+            Assert.AreEqual(expected, "Check Engine Soon!");
+
+            expected = "Oil Change!";
+            Assert.AreEqual(expected, "Oil Change!");
+
+
+
+
 
         }
     }

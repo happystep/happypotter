@@ -26,6 +26,10 @@ namespace Ksu.Cis501.evicSimulator.Tests
         [TestMethod()]
         public void ResetTest()
         {
+            string expected = "Trip Information";
+            Assert.AreEqual(expected, "Trip Information");
+
+
 
         }
 

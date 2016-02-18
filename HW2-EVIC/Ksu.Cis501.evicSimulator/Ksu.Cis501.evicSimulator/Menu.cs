@@ -8,14 +8,25 @@ namespace Ksu.Cis501.evicSimulator
 {
     public class Menu
     {
+        /// <summary>
+        /// boolean field for switching between US and metric
+        /// </summary>
         public static bool _isMetric = false;
+        /// <summary>
+        /// boolean field for checking if toggled has been activated
+        /// </summary>
         public static bool _isToggled = false; //toggled means metric system on
 
+        /// <summary>
+        /// no parameter constructor
+        /// </summary>
         public Menu()
         {
 
         }
-
+        /// <summary>
+        /// this method handles toggling the boolean fields _isMetric and _isToggled
+        /// </summary>
         public virtual void toggle()
         {
             if (_isMetric == false)
@@ -29,7 +40,9 @@ namespace Ksu.Cis501.evicSimulator
                 _isToggled = false;
             } 
         }
-
+        /// <summary>
+        /// This method takes care of displaying the appropriate settings and current menu
+        /// </summary>
         public virtual void display()
         {
             Console.Clear();
@@ -45,17 +58,29 @@ namespace Ksu.Cis501.evicSimulator
             }
 
         }
+        /// <summary>
+        /// this method returns a string with the menu's name
+        /// </summary>
+        /// <returns></returns>
         public  override string ToString()
         {
             return "Personal Settings";
         }
-
+        /// <summary>
+        /// this method converts miles to kilometers
+        /// </summary>
+        /// <param name="mi"></param>
+        /// <returns>returns the value in km calculated</returns>
         public static double ConvertToKM(double mi)
         {
             double km = mi * 1.609344;
             return km;
         }
-
+        /// <summary>
+        /// this method converts kilometers to miles
+        /// </summary>
+        /// <param name="km"></param>
+        /// <returnsreturns>the value in miles calculated</returnsreturns>
         public static double ConvertToMI(double km)
         {
             double mi = km / 1.609344;
@@ -65,18 +90,38 @@ namespace Ksu.Cis501.evicSimulator
 
     }//end class menu
 
+    /// <summary>
+    /// this is a class for the Status menu screen
+    /// </summary>
     public class Status : Menu
     {
+        /// <summary>
+        /// this field to tell if we are incrementing the odometer
+        /// </summary>
         bool _increment = false;
+        /// <summary>
+        /// field to hold current odometer reading 
+        /// </summary>
         double _odometer = 0;
+        /// <summary>
+        /// field to hold the current oil change mileage
+        /// </summary>
         double _oilChange = 0;
+        /// <summary>
+        /// field to tell if we are in the odometer setting or not 
+        /// </summary>
         bool _isOdometer = false;
 
+        /// <summary>
+        /// getter for the oil change field
+        /// </summary>
         public double Oil
         {
             get { return _oilChange; }
         }
-
+        /// <summary>
+        /// field taht toggles the _isOdometer boolean to change between settings
+        /// </summary>
         public override void toggle()
         {
 
@@ -90,6 +135,11 @@ namespace Ksu.Cis501.evicSimulator
             }
           
         }
+        /// <summary>
+        /// this method displays the appropriate setting 
+        /// </summary>
+        /// <param name="randomOdometer">random number for starting odomerter</param>
+        /// <param name="randomOilChange">random number for starting the oil change</param>
         public void display(int randomOdometer, int randomOilChange)
         {
             Console.Clear();
@@ -138,7 +188,9 @@ namespace Ksu.Cis501.evicSimulator
             }
 
         }
-
+        /// <summary>
+        /// method to reset oilchange
+        /// </summary>
         public void Reset()
         {
             Console.Clear();
@@ -153,7 +205,9 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine("Next oil change in 3000 mi");
             }
         }
-
+        /// <summary>
+        /// method to increment the value of odometer and decrement the value of oilchange, also takes care of the boolean
+        /// </summary>
         public void Increment()
         {
             _odometer++;
@@ -162,13 +216,27 @@ namespace Ksu.Cis501.evicSimulator
         }
 
     }
-
+    /// <summary>
+    /// this class represents the temperature menu screen
+    /// </summary>
     public class Temperature : Menu
     {
-        double _insideTemperature;
-        double _outsideTemperature;
-        bool _isInside = false;
 
+        /// <summary>
+        /// this field holds the inside temperature
+        /// </summary>
+        double _insideTemperature;
+        /// <summary>
+        /// this field holds the outside temperature
+        /// </summary>
+        double _outsideTemperature;
+        /// <summary>
+        /// this boolean represents which setting we are currently in 
+        /// </summary>
+        bool _isInside = false;
+        /// <summary>
+        /// this method toggles between the two settings 
+        /// </summary>
         public override void toggle()
         {
            if (_isInside == false)
@@ -180,7 +248,11 @@ namespace Ksu.Cis501.evicSimulator
                 _isInside = false;
             }
         }
-
+        /// <summary>
+        /// this method displays the current settings
+        /// </summary>
+        /// <param name="insideTemp">current inside temperature</param>
+        /// <param name="outsideTemp">current outside temperature</param>
         public void display(int insideTemp, int outsideTemp)
         {
             Console.Clear();
@@ -238,12 +310,22 @@ namespace Ksu.Cis501.evicSimulator
         }
 
     } 
-
+    /// <summary>
+    /// this class implements the trip menu setting
+    /// </summary>
     public class Trip : Menu
     {
+        /// <summary>
+        /// field for the increment boolean
+        /// </summary>
         bool _increment = false;
+        /// <summary>
+        /// field to see which trip setting we are currently in
+        /// </summary>
         bool _isTripA = false;
-
+        /// <summary>
+        /// this method is to toggle between the two trips
+        /// </summary>
         public override void toggle()
         {
             if(_isTripA == false)
@@ -255,10 +337,19 @@ namespace Ksu.Cis501.evicSimulator
                 _isTripA = false;
             }            
         }
-
+        /// <summary>
+        /// field with the distance in trip a
+        /// </summary>
         double _tripA = 0;
+        /// <summary>
+        /// field with the ditance in trip b
+        /// </summary>
         double _tripB = 0;
-
+        /// <summary>
+        /// this method displays the information in the current setting
+        /// </summary>
+        /// <param name="tripA">trip a distance</param>
+        /// <param name="tripB">trip b distance</param>
         public void display(int tripA, int tripB)
         {
             Console.Clear();
@@ -303,7 +394,9 @@ namespace Ksu.Cis501.evicSimulator
   
 
         } 
-
+        /// <summary>
+        /// resets the two trips
+        /// </summary>
         public void Reset()
         {
             Console.Clear();
@@ -318,7 +411,9 @@ namespace Ksu.Cis501.evicSimulator
                 _tripB = 0;
             }
         }//do we want to display after resetting - maybe Paula.. Maybe.. 
-
+        /// <summary>
+        /// this method increments the trips
+        /// </summary>
         public void Increment ()
         {
             _tripA++;
@@ -330,13 +425,29 @@ namespace Ksu.Cis501.evicSimulator
 
 
     }
-
+    /// <summary>
+    /// this class implements the warning menu settings
+    /// </summary>
     public class Warning : Menu
     {
+        /// <summary>
+        /// field for the door open or not
+        /// </summary>
         bool _doorAjar = false;
+        /// <summary>
+        /// field for the engine alarm
+        /// </summary>
         bool _CheckEngine = false;
+        /// <summary>
+        /// field for the oil change warning
+        /// </summary>
         bool _oilChange = false;
-            
+            /// <summary> 
+            /// this method takes care of toggling the warnings off and on
+            /// </summary>
+            /// <param name="a">door ajar toggle</param>
+            /// <param name="b">check engine toggle</param>
+            /// <param name="c">oil change toggle</param>
         public void toggle(bool a, bool b, bool c)
         { 
             //door settings
@@ -369,7 +480,9 @@ namespace Ksu.Cis501.evicSimulator
         }
 
         
-
+        /// <summary>
+        /// this method displays the information in the current setting
+        /// </summary>
         public override void display()
         {
             Console.Clear();

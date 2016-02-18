@@ -55,6 +55,10 @@ namespace Ksu.Cis501.evicSimulator
         /// </summary>
         private static bool door, engine, oilchange;
 
+        /// <summary>
+        /// Main class starts the program and triggers the simulation or regular run, all depending on the user
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             Console.WriteLine("Which mode would you like to enter?");
@@ -87,6 +91,10 @@ namespace Ksu.Cis501.evicSimulator
            
         }//end main class
 
+
+        /// <summary>
+        /// The program goes into an infinite loop and waits for the user to press one of the keys present in the switch statement
+        /// </summary>
         public static void MainMenu()
         {
             ConsoleKeyInfo keypress = Console.ReadKey();
@@ -114,6 +122,9 @@ namespace Ksu.Cis501.evicSimulator
 
         }//end mainmenu
         
+        /// <summary>
+        /// Implements the space bar functionalities
+        /// </summary>
         public static void BarSpace()
         {
             switch(index)
@@ -137,7 +148,7 @@ namespace Ksu.Cis501.evicSimulator
         }
 
         /// <summary>
-        /// Moves nad displays the main menu to the option indicated down 
+        /// Moves and displays the main menu to the option indicated down 
         /// </summary>
         public static void MoveUpDown()
         {  
@@ -217,6 +228,9 @@ namespace Ksu.Cis501.evicSimulator
             }
         }
 
+        /// <summary>
+        /// Implements the Simulator
+        /// </summary>
         public static void Simulator()
         {
             Console.WriteLine("1) System Status");
@@ -239,6 +253,10 @@ namespace Ksu.Cis501.evicSimulator
 
 
         }
+
+        /// <summary>
+        /// Implements option 1 of the simulator
+        /// </summary>
         public static void option1()
         {
             while (true)
@@ -267,6 +285,9 @@ namespace Ksu.Cis501.evicSimulator
             
         }
 
+        /// <summary>
+        /// Implements option 2 of the simulator
+        /// </summary>
         public static void option2()
         {
             index = 1;
@@ -304,6 +325,9 @@ namespace Ksu.Cis501.evicSimulator
 
         }
 
+        /// <summary>
+        /// implements option 3 of the simulator
+        /// </summary>
         public static void option3()
         {
             index = 3;
@@ -347,7 +371,6 @@ namespace Ksu.Cis501.evicSimulator
 
             }
         }
-
 
     }
 }
