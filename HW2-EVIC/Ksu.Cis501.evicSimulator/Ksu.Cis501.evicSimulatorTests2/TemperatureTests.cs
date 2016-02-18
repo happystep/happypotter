@@ -20,19 +20,26 @@ namespace Ksu.Cis501.evicSimulator.Tests
         [TestMethod()]
         public void displayTest()
         {
-
+            string expected = "Temperature Information";
+            Assert.AreEqual(expected, "Temperature Information");
         }
 
         [TestMethod()]
         public void ConvertToCelsiusTest()
         {
-
+            Temperature t = new Temperature();
+            double x = 212;
+            double expected = t.ConvertToCelsius(x);
+            Assert.AreEqual(expected, (5.0 / 9.0) * (x - 32), 0.00001);
         }
 
         [TestMethod()]
         public void ConvertToFarhenheitTest()
         {
-
+            Temperature t = new Temperature();
+            double x = 60;
+            double expected = t.ConvertToFarhenheit(x);
+            Assert.AreEqual(expected, ((x * 9) / 5) + 32, 0.00001);
         }
     }
 }

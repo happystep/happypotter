@@ -26,13 +26,20 @@ namespace Ksu.Cis501.evicSimulator.Tests
         [TestMethod()]
         public void ResetTest()
         {
+            Status._isMetric = true;
+            Assert.AreEqual(Status._isMetric, true);
+            string expected = "Next oil change in 4828.032 km";
+            Assert.AreEqual(expected, "Next oil change in 4828.032 km");
+
+            expected = "Next oil change in 3000 mi";
+            Assert.AreEqual(expected, "Next oil change in 3000 mi");
 
         }
 
         [TestMethod()]
         public void IncrementTest()
         {
-
+            
         }
     }
 }

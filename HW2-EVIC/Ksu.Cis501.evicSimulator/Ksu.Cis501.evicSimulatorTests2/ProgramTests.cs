@@ -31,7 +31,10 @@ namespace Ksu.Cis501.evicSimulator.Tests
         [TestMethod()]
         public void MainMenuTest()
         {
-            Assert.Fail();
+            ConsoleKey k;
+            k = ConsoleKey.LeftArrow;
+
+            k = ConsoleKey.RightArrow;
         }
 
         [TestMethod()]

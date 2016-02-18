@@ -186,8 +186,6 @@ namespace Ksu.Cis501.evicSimulator
             Console.Clear();
             Console.WriteLine("Temperature Information");
 
-
-
             _outsideTemperature = outsideTemp;
             _insideTemperature = insideTemp;
             //inside variations
@@ -295,7 +293,7 @@ namespace Ksu.Cis501.evicSimulator
             }
             else if (_isTripA == false && _isMetric == false) //miles or kilometers atm????
             {
-                Console.WriteLine("Trip-B: " + _tripB);
+                Console.WriteLine("Trip-B: " + _tripB + " mi");
             }
             else if (_isTripA == true && _isMetric == false && _isToggled == false)
             {
