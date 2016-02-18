@@ -9,42 +9,30 @@ using System.Threading.Tasks;
 namespace Ksu.Cis501.evicSimulator.Tests
 {
     [TestClass()]
-    public class MenuTests
+    public class StatusTests
     {
-        [TestMethod()]
-        public void MenuTest()
-        {
-            Assert.Fail();
-        }
-
         [TestMethod()]
         public void toggleTest()
         {
-            Assert.Fail();
+
         }
 
         [TestMethod()]
         public void displayTest()
         {
-            Assert.Fail();
+
         }
 
         [TestMethod()]
-        public void ToStringTest()
+        public void ResetTest()
         {
-            Assert.Fail();
+
         }
 
         [TestMethod()]
-        public void ConvertToKMTest()
+        public void IncrementTest()
         {
-            Assert.Fail();
-        }
 
-        [TestMethod()]
-        public void ConvertToMITest()
-        {
-            Assert.Fail();
         }
     }
 }

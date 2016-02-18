@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}</ProjectGuid>
+    <ProjectGuid>{8B88A59D-0C5A-45DF-9BB2-ECE3D1D03555}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ksu.Cis501.evicSimulatorTests</RootNamespace>
-    <AssemblyName>Ksu.Cis501.evicSimulatorTests</AssemblyName>
+    <RootNamespace>Ksu.Cis501.evicSimulatorTests1</RootNamespace>
+    <AssemblyName>Ksu.Cis501.evicSimulatorTests1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

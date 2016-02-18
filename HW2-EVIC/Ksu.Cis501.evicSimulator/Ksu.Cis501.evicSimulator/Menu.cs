@@ -44,7 +44,6 @@ namespace Ksu.Cis501.evicSimulator
                 Console.WriteLine("Metric Units");
             }
 
-
         }
         public  override string ToString()
         {
@@ -53,12 +52,15 @@ namespace Ksu.Cis501.evicSimulator
 
         public static double ConvertToKM(double mi)
         {
-            return mi * 1.609344;
+            double km = mi * 1.609344;
+            return km;
         }
 
         public static double ConvertToMI(double km)
         {
-            return km / 1.609344;
+            double mi = km / 1.609344;
+            return mi;
+
         }
 
     }//end class menu

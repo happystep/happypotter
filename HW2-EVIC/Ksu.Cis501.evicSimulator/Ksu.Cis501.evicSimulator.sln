@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Cis501.evicSimulator", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1AFB487E-0481-4CD6-B6B6-2D9C53F513DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Cis501.evicSimulatorTests", "Ksu.Cis501.evicSimulatorTests\Ksu.Cis501.evicSimulatorTests.csproj", "{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Cis501.evicSimulatorTests2", "Ksu.Cis501.evicSimulatorTests2\Ksu.Cis501.evicSimulatorTests2.csproj", "{BA0A027D-A413-48D4-8FE8-05388F0BDA2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{B72A2A14-66FF-46B6-AC42-88AC321211E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B72A2A14-66FF-46B6-AC42-88AC321211E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B72A2A14-66FF-46B6-AC42-88AC321211E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32DDA683-A0AF-4512-B97F-03E1EEAF2E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0A027D-A413-48D4-8FE8-05388F0BDA2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0A027D-A413-48D4-8FE8-05388F0BDA2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0A027D-A413-48D4-8FE8-05388F0BDA2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0A027D-A413-48D4-8FE8-05388F0BDA2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -316,29 +316,11 @@ namespace Ksu.Cis501.evicSimulator
             {
                 if (answer == 'a')
                 {
-                    Console.WriteLine("Please enter avalue in F"
+                    Console.WriteLine("Please enter a value in F"
                         + "ahrenheit for the Ouside temperature:");
                     int outsideTemp = Convert.ToInt32(Console.ReadLine());
-                 //   ConsoleKeyInfo keypress = Console.ReadKey();
 
                     temp.display(randomNumbers[4], outsideTemp);
-
-                    //switch (keypress.Key)
-                    //{
-
-                    //    case ConsoleKey.UpArrow:
-                    //        temp.toggle();
-                    //        break;
-                    //    case ConsoleKey.DownArrow:
-                    //        temp.toggle();
-                    //        break;
-                    //    default:
-                    //        break;
-
-                    //}
-
-
-
                 }
 
 
@@ -359,20 +341,6 @@ namespace Ksu.Cis501.evicSimulator
                         insideToggle = true;
                     }
                     temp.display(insideTemp, randomNumbers[5]);
-
-                    //switch (keypress.Key)
-                    //{
-
-                    //    case ConsoleKey.UpArrow:
-                    //        temp.toggle();
-                    //        break;
-                    //    case ConsoleKey.DownArrow:
-                    //        temp.toggle();
-                    //        break;
-                    //    default:
-                    //        break;
-
-                    //}
                 }
 
 
