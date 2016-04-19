@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Websocket_Chat_Client
 {
-    public partial class Form1 : Form
+    public partial class InputOutputForm : Form
     {
-        public Form1()
+        public InputOutputForm()
         {
             InitializeComponent();
         }

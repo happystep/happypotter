@@ -1,6 +1,6 @@
 ﻿namespace Websocket_Chat_Client
 {
-    partial class Form1
+    partial class InputOutputForm
     {
         /// <summary>
         /// Required designer variable.
