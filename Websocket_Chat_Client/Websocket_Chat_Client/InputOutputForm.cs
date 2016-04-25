@@ -13,6 +13,7 @@ namespace Websocket_Chat_Client
 {
     public partial class InputOutputForm : Form
     {
+        
         IServerAPI api;
         Model m;
         
@@ -20,16 +21,13 @@ namespace Websocket_Chat_Client
         public InputOutputForm(IServerAPI api)
         {
             InitializeComponent();
-            uxSendButton.Click += api.SendMessageToChat("hi", 0);
             this.api = api;
+            uxSendButton.Click += api.SendMessageToChat("hi", 0);
+            uxLoginStrip.Click += api.LogIn(" ", " ");
+           
         }
 
         private void InputOutputForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -38,5 +36,6 @@ namespace Websocket_Chat_Client
         {
             api.SendMessageToChat(uxTextbox.Text, 0);
         }
+
     }
 }

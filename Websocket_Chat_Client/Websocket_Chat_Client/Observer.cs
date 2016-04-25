@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace Websocket_Chat_Client
 {
-    interface Observer
+    public interface Observer
     {
-         List<Observer> observers;
+        List<Observer> observers { get; set; }
 
+
+        void Update();
        
-
-        public void Update()
-        {
-
-        }
-
 
     }
 }

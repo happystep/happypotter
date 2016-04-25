@@ -34,21 +34,21 @@
             this.uxContactList = new System.Windows.Forms.ListBox();
             this.uxChatScrollBar = new System.Windows.Forms.VScrollBar();
             this.uxContactScroll = new System.Windows.Forms.VScrollBar();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uxLoginStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxTextbox
             // 
             this.uxTextbox.Enabled = false;
             this.uxTextbox.Location = new System.Drawing.Point(5, 404);
-            this.uxTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.uxTextbox.Name = "uxTextbox";
             this.uxTextbox.Size = new System.Drawing.Size(440, 64);
             this.uxTextbox.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.uxSendButton.Enabled = false;
             this.uxSendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.uxSendButton.Location = new System.Drawing.Point(448, 404);
-            this.uxSendButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxSendButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxSendButton.Name = "uxSendButton";
             this.uxSendButton.Size = new System.Drawing.Size(78, 62);
             this.uxSendButton.TabIndex = 1;
@@ -71,8 +71,10 @@
             // 
             this.uxChat.Enabled = false;
             this.uxChat.FormattingEnabled = true;
+            this.uxChat.Items.AddRange(new object[] {
+            ""});
             this.uxChat.Location = new System.Drawing.Point(140, 29);
-            this.uxChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxChat.Margin = new System.Windows.Forms.Padding(2);
             this.uxChat.Name = "uxChat";
             this.uxChat.Size = new System.Drawing.Size(387, 368);
             this.uxChat.TabIndex = 2;
@@ -81,8 +83,10 @@
             // 
             this.uxContactList.Enabled = false;
             this.uxContactList.FormattingEnabled = true;
+            this.uxContactList.Items.AddRange(new object[] {
+            ""});
             this.uxContactList.Location = new System.Drawing.Point(5, 29);
-            this.uxContactList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxContactList.Margin = new System.Windows.Forms.Padding(2);
             this.uxContactList.Name = "uxContactList";
             this.uxContactList.Size = new System.Drawing.Size(132, 368);
             this.uxContactList.TabIndex = 3;
@@ -103,38 +107,38 @@
             this.uxContactScroll.Size = new System.Drawing.Size(26, 367);
             this.uxContactScroll.TabIndex = 5;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.contactOptionsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(537, 24);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip.Size = new System.Drawing.Size(537, 24);
+            this.menuStrip.TabIndex = 6;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginToolStripMenuItem,
+            this.uxLoginStrip,
             this.logoutToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // loginToolStripMenuItem
+            // uxLoginStrip
             // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.loginToolStripMenuItem.Text = "Login";
+            this.uxLoginStrip.Name = "uxLoginStrip";
+            this.uxLoginStrip.Size = new System.Drawing.Size(152, 22);
+            this.uxLoginStrip.Text = "Login";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // contactOptionsToolStripMenuItem
@@ -169,14 +173,14 @@
             this.Controls.Add(this.uxChat);
             this.Controls.Add(this.uxSendButton);
             this.Controls.Add(this.uxTextbox);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InputOutputForm";
-            this.Text = "Form1";
+            this.Text = "Chat";
             this.Load += new System.EventHandler(this.InputOutputForm_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,9 +193,9 @@
         private System.Windows.Forms.ListBox uxChat;
         private System.Windows.Forms.ListBox uxContactList;
         private System.Windows.Forms.VScrollBar uxChatScrollBar;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uxLoginStrip;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addAContactToolStripMenuItem;

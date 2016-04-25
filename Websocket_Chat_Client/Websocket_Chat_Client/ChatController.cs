@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebSocketSharp;
 
 namespace Websocket_Chat_Client
 {
@@ -12,8 +13,10 @@ namespace Websocket_Chat_Client
 
 
         //attributes
-        //message received?
-        //websocket object
+        
+
+        event MessageReceived (string packet);
+        WebSocket ws;
 
         //operations
         
@@ -61,6 +64,7 @@ namespace Websocket_Chat_Client
         /// <param name="password">the password of the login</param>
         public void LogIn(string username, string password)
         {
+            
 
         }
 
