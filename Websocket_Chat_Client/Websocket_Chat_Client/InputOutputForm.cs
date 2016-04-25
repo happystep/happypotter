@@ -16,5 +16,15 @@ namespace Websocket_Chat_Client
         {
             InitializeComponent();
         }
+
+        private void InputOutputForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
