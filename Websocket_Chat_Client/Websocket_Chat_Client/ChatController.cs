@@ -4,20 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebSocketSharp;
+using ClientServerLibrary;
 
 namespace Websocket_Chat_Client
 {
-    class ChatController
+    class ChatController : IServerAPI
     {
         //////this will not be completed yet... missing Websocket sharp, and explanations
 
 
         //attributes
-        
 
-        event MessageReceived (string packet); //not sure how to really od this 
+        public event EventHandler update;
+
+
+        //event MessageReceived (string packet); //not sure how to really od this 
+        Model m;
         WebSocket ws;
-
+        
         //operations
         
         /// <summary>
@@ -27,7 +31,25 @@ namespace Websocket_Chat_Client
         /// <param name="ID">the ID of the chat that will be added</param>
         public void AddChat(string username, int ID)
         {
+            throw new NotImplementedException();
+        }
 
+        private void Ws_OnMessage(object sender, MessageEventArgs e)
+        {
+            bool didModelChange = false;
+
+
+            if (didModelChange)
+            { 
+                //if model did change
+                if (update != null)
+                {
+                    update(this, EventArgs.Empty);
+                }
+                //if changes are made-> update observers   
+            }
+
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -43,9 +65,11 @@ namespace Websocket_Chat_Client
         /// 
         /// </summary>
         /// <param name="MessageReceived"></param>
-        public void ChatController(message MessageReceived)//needs to implemented from API
+        public ChatController(Model m)//needs to implemented from API
         {
-
+            ws = new WebSocket(" "); 
+            ws.OnMessage += Ws_OnMessage;
+            this.m = m;
 
         }
 
@@ -111,5 +135,9 @@ namespace Websocket_Chat_Client
             
         }
 
+        public void SendMessageToChat(string message, int chatID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

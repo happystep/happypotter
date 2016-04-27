@@ -22,15 +22,16 @@ namespace Websocket_Chat_Client
         {
             InitializeComponent();
             this.api = api;
-          //  uxSendButton.Click += api.SendMessageToChat("hi", 0);
-          //  uxLoginStrip.Click += api.LogIn(" ", " ");
+         // uxSendButton.Click += api.SendMessageToChat("hi", 0);
+         //  uxLoginStrip.Click += api.LogIn(" ", " ");
            
         }
 
-        private void InputOutputForm_Load(object sender, EventArgs e)
+        public void OnModelUpdate(object sender, EventArgs args)
         {
-
+            //will query model on update
         }
+
 
         /// <summary>
         /// send button should send a mesages

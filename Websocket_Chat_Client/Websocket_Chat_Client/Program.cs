@@ -16,7 +16,11 @@ namespace Websocket_Chat_Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InputOutputForm());
+            Model m = new Model();
+            ChatController c = new ChatController(m);
+            InputOutputForm f = new InputOutputForm(c);
+            c.update += f.OnModelUpdate;
+            Application.Run(f);
         }
     }
 }

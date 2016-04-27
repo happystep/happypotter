@@ -32,8 +32,6 @@
             this.uxSendButton = new System.Windows.Forms.Button();
             this.uxChat = new System.Windows.Forms.ListBox();
             this.uxContactList = new System.Windows.Forms.ListBox();
-            this.uxChatScrollBar = new System.Windows.Forms.VScrollBar();
-            this.uxContactScroll = new System.Windows.Forms.VScrollBar();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uxLoginStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +74,7 @@
             this.uxChat.Location = new System.Drawing.Point(140, 29);
             this.uxChat.Margin = new System.Windows.Forms.Padding(2);
             this.uxChat.Name = "uxChat";
+            this.uxChat.ScrollAlwaysVisible = true;
             this.uxChat.Size = new System.Drawing.Size(387, 368);
             this.uxChat.TabIndex = 2;
             // 
@@ -88,24 +87,9 @@
             this.uxContactList.Location = new System.Drawing.Point(5, 29);
             this.uxContactList.Margin = new System.Windows.Forms.Padding(2);
             this.uxContactList.Name = "uxContactList";
+            this.uxContactList.ScrollAlwaysVisible = true;
             this.uxContactList.Size = new System.Drawing.Size(132, 368);
             this.uxContactList.TabIndex = 3;
-            // 
-            // uxChatScrollBar
-            // 
-            this.uxChatScrollBar.Enabled = false;
-            this.uxChatScrollBar.Location = new System.Drawing.Point(508, 29);
-            this.uxChatScrollBar.Name = "uxChatScrollBar";
-            this.uxChatScrollBar.Size = new System.Drawing.Size(26, 367);
-            this.uxChatScrollBar.TabIndex = 4;
-            // 
-            // uxContactScroll
-            // 
-            this.uxContactScroll.Enabled = false;
-            this.uxContactScroll.Location = new System.Drawing.Point(119, 29);
-            this.uxContactScroll.Name = "uxContactScroll";
-            this.uxContactScroll.Size = new System.Drawing.Size(26, 367);
-            this.uxContactScroll.TabIndex = 5;
             // 
             // menuStrip
             // 
@@ -132,14 +116,14 @@
             // uxLoginStrip
             // 
             this.uxLoginStrip.Name = "uxLoginStrip";
-            this.uxLoginStrip.Size = new System.Drawing.Size(152, 22);
+            this.uxLoginStrip.Size = new System.Drawing.Size(112, 22);
             this.uxLoginStrip.Text = "Login";
             this.uxLoginStrip.Click += new System.EventHandler(this.uxLoginStrip_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -171,8 +155,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 480);
-            this.Controls.Add(this.uxContactScroll);
-            this.Controls.Add(this.uxChatScrollBar);
             this.Controls.Add(this.uxContactList);
             this.Controls.Add(this.uxChat);
             this.Controls.Add(this.uxSendButton);
@@ -182,7 +164,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InputOutputForm";
             this.Text = "Chat";
-            this.Load += new System.EventHandler(this.InputOutputForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -196,7 +177,6 @@
         private System.Windows.Forms.Button uxSendButton;
         private System.Windows.Forms.ListBox uxChat;
         private System.Windows.Forms.ListBox uxContactList;
-        private System.Windows.Forms.VScrollBar uxChatScrollBar;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uxLoginStrip;
@@ -204,7 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem contactOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addAContactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAContactToolStripMenuItem;
-        private System.Windows.Forms.VScrollBar uxContactScroll;
     }
 }
 
