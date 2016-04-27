@@ -15,7 +15,7 @@ namespace Websocket_Chat_Client
         //attributes
         
 
-        event MessageReceived (string packet);
+        event MessageReceived (string packet); //not sure how to really od this 
         WebSocket ws;
 
         //operations

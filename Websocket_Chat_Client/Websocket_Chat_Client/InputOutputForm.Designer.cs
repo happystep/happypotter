@@ -134,12 +134,14 @@
             this.uxLoginStrip.Name = "uxLoginStrip";
             this.uxLoginStrip.Size = new System.Drawing.Size(152, 22);
             this.uxLoginStrip.Text = "Login";
+            this.uxLoginStrip.Click += new System.EventHandler(this.uxLoginStrip_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // contactOptionsToolStripMenuItem
             // 
@@ -155,12 +157,14 @@
             this.addAContactToolStripMenuItem.Name = "addAContactToolStripMenuItem";
             this.addAContactToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.addAContactToolStripMenuItem.Text = "Add a Contact";
+            this.addAContactToolStripMenuItem.Click += new System.EventHandler(this.addAContactToolStripMenuItem_Click);
             // 
             // deleteAContactToolStripMenuItem
             // 
             this.deleteAContactToolStripMenuItem.Name = "deleteAContactToolStripMenuItem";
             this.deleteAContactToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.deleteAContactToolStripMenuItem.Text = "Delete a contact";
+            this.deleteAContactToolStripMenuItem.Click += new System.EventHandler(this.deleteAContactToolStripMenuItem_Click);
             // 
             // InputOutputForm
             // 
