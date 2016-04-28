@@ -10,7 +10,7 @@ namespace Websocket_Chat_Client
 {
     class ChatController : IServerAPI
     {
-        //////this will not be completed yet... missing Websocket sharp, and explanations
+        
 
 
         //attributes
