@@ -20,6 +20,9 @@ namespace Websocket_Chat_Client
             ChatController c = new ChatController(m);
             InputOutputForm f = new InputOutputForm(c);
             c.update += f.OnModelUpdate;
+
+           //login message box
+
             Application.Run(f);
         }
     }

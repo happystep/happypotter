@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WebSocketSharp;
 using ClientServerLibrary;
+using Newtonsoft.Json;
+
 
 namespace Websocket_Chat_Client
 {
@@ -16,6 +19,8 @@ namespace Websocket_Chat_Client
         //attributes
 
         public event EventHandler update;
+
+       
 
 
         //event MessageReceived (string packet); //not sure how to really od this 
@@ -31,13 +36,66 @@ namespace Websocket_Chat_Client
         /// <param name="ID">the ID of the chat that will be added</param>
         public void AddChat(string username, int ID)
         {
-            throw new NotImplementedException();
+            string[] args = { "C_AddChat", DateTime.Now.ToString(), m.GetUsername, username, ID.ToString() };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
 
-        private void Ws_OnMessage(object sender, MessageEventArgs e)
+        private void GotPacket(string packet)
         {
             bool didModelChange = false;
 
+            string[] args = JsonConvert.DeserializeObject<string[]>(packet);
+            //MessageBox.Show("Packet received is " + packet);
+            if (args.Length < 3)
+                return;
+
+            if (args[0].Equals("S_BroadcastStatus"))
+            {
+                string username = args[3];
+                bool isOnline = args[4].ToLower().Equals("true");
+                Account account = m.GetAccount.Find(a => a.GetUsername.Equals(username));
+                if (account != null)
+                {
+                    account.IsOnline = isOnline;
+                }
+            }
+            else if (args[0].Equals("S_DeleteContact"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendChatID"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendContactList"))
+            {
+
+            }
+            else if (args[0].Equals("S_Error"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendLoginReply"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendNewContact"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendUserStatus"))
+            {
+
+            }
+            else if (args[0].Equals("S_SendMessage"))
+            {
+
+            }
+            else
+            {
+                return;
+            }
 
             if (didModelChange)
             { 
@@ -49,7 +107,7 @@ namespace Websocket_Chat_Client
                 //if changes are made-> update observers   
             }
 
-            throw new NotImplementedException();
+           
         }
 
         /// <summary>
@@ -58,7 +116,9 @@ namespace Websocket_Chat_Client
         /// <param name="contactName">the contact name that needs to be addded</param>
         public void AddContact(string contactName)
         {
-
+            string[] args = { "C_AddContact", DateTime.Now.ToString(), m.GetUsername, contactName};
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
 
         /// <summary>
@@ -67,8 +127,9 @@ namespace Websocket_Chat_Client
         /// <param name="MessageReceived"></param>
         public ChatController(Model m)//needs to implemented from API
         {
-            ws = new WebSocket(" "); 
-            ws.OnMessage += Ws_OnMessage;
+            ws = new WebSocket("ws://127.0.0.1:8005/chat");
+            ws.OnMessage += (s, e) => GotPacket(e.Data);
+            ws.Connect();
             this.m = m;
 
         }
@@ -79,6 +140,9 @@ namespace Websocket_Chat_Client
         /// <param name="contactName">the contact name that needs to be deleted</param>
         public void DeleteContact(string contactName)
         {
+            string[] args = { "C_DeleteContact", DateTime.Now.ToString(), m.GetUsername, contactName };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
 
         }
         /// <summary>
@@ -88,7 +152,9 @@ namespace Websocket_Chat_Client
         /// <param name="password">the password of the login</param>
         public void LogIn(string username, string password)
         {
-            
+            string[] args = { "C_LogIn", DateTime.Now.ToString(), " ", username, password };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
 
         }
 
@@ -97,7 +163,9 @@ namespace Websocket_Chat_Client
         /// </summary>
         public void LogOut()
         {
-
+            string[] args = { "C_LogOut", DateTime.Now.ToString(), m.GetUsername };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
 
         /// <summary>
@@ -106,7 +174,9 @@ namespace Websocket_Chat_Client
         /// <param name="username">user name of the chat that needs to be opened</param>
         public void OpenChat(string username)
         {
-
+            string[] args = { "C_OpenChat", DateTime.Now.ToString(), m.GetUsername, username };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
 
         /// <summary>
@@ -114,7 +184,9 @@ namespace Websocket_Chat_Client
         /// </summary>
         public void RequestContactList()
         {
-
+            string[] args = { "C_RequestContactList", DateTime.Now.ToString(), m.GetUsername};
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
         
         /// <summary>
@@ -123,21 +195,18 @@ namespace Websocket_Chat_Client
         /// <param name="username">the username of the contact that the status is being requested</param>
         public void RequestContactStatus(string username)
         {
-
+            string[] args = { "C_RequestContactStatus", DateTime.Now.ToString(), m.GetUsername,username };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
 
-        /// <summary>
-        /// method that is goint to be in stand by waiting for the packets to come in
-        /// </summary>
-        /// <param name="e"></param>
-        private void GotPacket(MessageEventArgs e)
-        {
-            
-        }
+       
 
         public void SendMessageToChat(string message, int chatID)
         {
-            throw new NotImplementedException();
+            string[] args = { "C_SendMessageToChat", DateTime.Now.ToString(), m.GetUsername, message, chatID.ToString() };
+            string json = JsonConvert.SerializeObject(args);
+            ws.Send(json);
         }
     }
 }
